@@ -58,6 +58,28 @@ class LinkedList:
         self.length -= 1
         return result
 
+    def get_item(self, index: int) -> Node | None:
+        if index < 0 or index > self.length:
+            return None
+        temp: Node = self.head
+        for _ in range(index):
+            temp = temp.next
+        return temp
+
+    def insert_item(self, value: int, index: int) -> bool:
+        if index < 0 or index > self.length:
+            return False
+        new_node = Node(value)
+        if index == 0:
+            new_node.next = self.head
+            self.head = new_node
+        temp: Node = self.get_item(index - 1)
+        new_node.next = temp.next
+        temp.next = new_node
+        self.length += 1
+
+        return True
+
     def print_list(self):
         temp = self.head
         while temp:

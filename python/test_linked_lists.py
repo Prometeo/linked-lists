@@ -62,3 +62,26 @@ def test_single_first(base_linked_list):
     assert base_linked_list.head is None
     assert base_linked_list.tail is None
     assert base_linked_list.length == 0
+
+
+def test_get_item(base_linked_list):
+    base_linked_list.append(2)
+    base_linked_list.append(3)
+    base_linked_list.append(4)
+    item_1 = base_linked_list.get_item(2)
+    item_2 = base_linked_list.get_item(3)
+    item_3 = base_linked_list.get_item(30)
+
+    assert item_1.value == 3
+    assert item_2.value == 4
+    assert item_3 is None
+
+
+def test_imsert(base_linked_list):
+    base_linked_list.append(2)
+    base_linked_list.append(3)
+    base_linked_list.append(4)
+    base_linked_list.insert_item(9, 2)
+    assert base_linked_list.get_item(2).value == 9
+    assert base_linked_list.get_item(3).value == 3
+    assert base_linked_list.length == 5
