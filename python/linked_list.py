@@ -44,6 +44,20 @@ class LinkedList:
         self.length -= 1
         return result
 
+    def pop_first(self) -> int | None:
+        if self.head and self.tail is None:
+            return None
+        result: int | None = None
+        if self.length == 1:
+            result = self.head.value
+            self.head = None
+            self.tail = None
+        else:
+            result = self.head.value
+            self.head = self.head.next
+        self.length -= 1
+        return result
+
     def print_list(self):
         temp = self.head
         while temp:

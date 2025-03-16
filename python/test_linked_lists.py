@@ -44,3 +44,21 @@ def test_pop_only_item():
     assert linked_list.length == 0
     assert linked_list.head is None
     assert linked_list.tail is None
+
+
+def test_first(base_linked_list):
+    base_linked_list.append(2)
+    base_linked_list.append(3)
+    item = base_linked_list.pop_first()
+    assert item == 1
+    assert base_linked_list.head.value == 2
+    assert base_linked_list.tail.value == 3
+    assert base_linked_list.length == 2
+
+
+def test_single_first(base_linked_list):
+    item = base_linked_list.pop_first()
+    assert item == 1
+    assert base_linked_list.head is None
+    assert base_linked_list.tail is None
+    assert base_linked_list.length == 0
