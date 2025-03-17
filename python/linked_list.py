@@ -58,6 +58,16 @@ class LinkedList:
         self.length -= 1
         return result
 
+    def prepend(self, value) -> bool:
+        new_node = Node(value)
+        if self.length == 0:
+            self.head = new_node
+            self.tail = new_node
+        new_node.next = self.head
+        self.head = new_node
+        self.length += 1
+        return True
+
     def get_item(self, index: int) -> Node | None:
         if index < 0 or index > self.length:
             return None

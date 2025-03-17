@@ -85,3 +85,18 @@ def test_imsert(base_linked_list):
     assert base_linked_list.get_item(2).value == 9
     assert base_linked_list.get_item(3).value == 3
     assert base_linked_list.length == 5
+
+
+def prepend(base_linked_list):
+    base_linked_list.prepend(5)
+    assert base_linked_list.head.value == 5
+    assert base_linked_list.head.next == 1
+    assert base_linked_list.length == 2
+
+
+def prepend_empty_linked_list(base_linked_list):
+    base_linked_list.pop()
+    base_linked_list.prepend(9)
+    assert base_linked_list.length == 1
+    assert base_linked_list.head.value == 9
+    assert base_linked_list.tail.value == 9
