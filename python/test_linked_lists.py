@@ -77,7 +77,7 @@ def test_get_item(base_linked_list):
     assert item_3 is None
 
 
-def test_imsert(base_linked_list):
+def test_insert(base_linked_list):
     base_linked_list.append(2)
     base_linked_list.append(3)
     base_linked_list.append(4)
@@ -87,16 +87,25 @@ def test_imsert(base_linked_list):
     assert base_linked_list.length == 5
 
 
-def prepend(base_linked_list):
+def test_prepend(base_linked_list):
     base_linked_list.prepend(5)
     assert base_linked_list.head.value == 5
-    assert base_linked_list.head.next == 1
+    assert base_linked_list.head.next.value == 1
     assert base_linked_list.length == 2
 
 
-def prepend_empty_linked_list(base_linked_list):
+def test_prepend_empty_linked_list(base_linked_list):
     base_linked_list.pop()
     base_linked_list.prepend(9)
     assert base_linked_list.length == 1
     assert base_linked_list.head.value == 9
     assert base_linked_list.tail.value == 9
+
+
+def test_remove(base_linked_list):
+    base_linked_list.append(2)
+    base_linked_list.append(3)
+    base_linked_list.append(4)
+    assert base_linked_list.remove_item(2)
+    assert base_linked_list.length == 3
+    assert base_linked_list.get_item(2).value == 4

@@ -90,6 +90,16 @@ class LinkedList:
 
         return True
 
+    def remove_item(self, index: int) -> bool:
+        if index < 0 or index > self.length - 1:
+            return False
+        prev = self.get_item(index - 1)
+        current = self.get_item(index)
+        prev.next = current.next
+        current.next = None
+        self.length -= 1
+        return True
+
     def print_list(self):
         temp = self.head
         while temp:
