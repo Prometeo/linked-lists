@@ -109,3 +109,13 @@ def test_remove(base_linked_list):
     assert base_linked_list.remove_item(2)
     assert base_linked_list.length == 3
     assert base_linked_list.get_item(2).value == 4
+
+
+def test_reverse(base_linked_list):
+    base_linked_list.append(2)
+    base_linked_list.append(3)
+    base_linked_list.append(4)
+    base_linked_list.reverse()
+    assert base_linked_list.head.value == 4
+    assert base_linked_list.tail.value == 1
+    assert base_linked_list.head.next.value == 3

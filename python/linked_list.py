@@ -90,6 +90,18 @@ class LinkedList:
 
         return True
 
+    def reverse(self) -> None:
+        temp = self.head
+        self.head = self.tail
+        self.tail = temp
+        before = None
+
+        for _ in range(self.length):
+            after = temp.next
+            temp.next = before
+            before = temp
+            temp = after
+
     def remove_item(self, index: int) -> bool:
         if index < 0 or index > self.length - 1:
             return False
