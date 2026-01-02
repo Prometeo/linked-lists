@@ -1,10 +1,7 @@
-from typing import Optional
-
-
 class Node:
     def __init__(self, value: int):
         self.value = value
-        self.next: Optional["Node"] = None
+        self.next: Node | None = None
 
 
 class LinkedList:
